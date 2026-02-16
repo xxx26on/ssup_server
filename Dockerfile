@@ -1,5 +1,5 @@
-# Sử dụng node bản LTS
 FROM node:20-alpine AS builder
+RUN apk add --no-cache libc6-compat
 
 WORKDIR /app
 
@@ -16,6 +16,7 @@ RUN yarn build
 
 # --- Runner Stage ---
 FROM node:20-alpine
+RUN apk add --no-cache openssl libc6-compat
 
 WORKDIR /app
 
