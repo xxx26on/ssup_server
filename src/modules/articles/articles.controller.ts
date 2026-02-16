@@ -4,7 +4,6 @@ import { CreateArticleDto, UpdateArticleDto } from './dto/article.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
-import { Role } from '@prisma/client';
 
 @Controller('articles')
 export class ArticlesController {
@@ -28,6 +27,19 @@ export class ArticlesController {
       limit: limit ? +limit : 10,
       categoryId: categoryId ? +categoryId : undefined,
       search,
+    });
+  }
+
+  @Get('me')
+  @UseGuards(JwtAuthGuard)
+  findAllMyArticles(
+    @Req() req,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
+  ) {
+    return this.articlesService.findAllForUser(req.user.userId, {
+      page: page ? +page : 1,
+      limit: limit ? +limit : 10,
     });
   }
 
