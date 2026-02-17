@@ -29,4 +29,7 @@ COPY --from=builder /app/prisma ./prisma
 EXPOSE 3001
 
 # Chạy migrate và start app
-CMD ["sh", "-c", "npx prisma migrate deploy && node dist/src/main"]
+# Generate Prisma Client
+RUN npx prisma generate
+
+CMD ["sh", "-c", "npx prisma db push && node dist/src/main"]
