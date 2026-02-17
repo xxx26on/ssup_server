@@ -80,6 +80,9 @@ let AuthService = class AuthService {
         if (!user) {
             throw new common_1.UnauthorizedException('Invalid credentials');
         }
+        if (!user.password) {
+            throw new common_1.UnauthorizedException('Invalid credentials');
+        }
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
             throw new common_1.UnauthorizedException('Invalid credentials');
@@ -88,6 +91,56 @@ let AuthService = class AuthService {
         return {
             access_token: this.jwtService.sign(payload),
             user: { id: user.id, email: user.email, name: user.name, role: user.role, avatar: user.avatar },
+        };
+    }
+    async validateSocialUser(socialUser) {
+        const { email, name, avatar, provider, socialId } = socialUser;
+        if (!email) {
+            throw new Error('Email not found from social provider');
+        }
+        let user = await this.prisma.user.findUnique({
+            where: { email },
+        });
+        if (user) {
+            if (!user.provider || user.provider === 'local') {
+                const updateData = {};
+                if (avatar && !user.avatar)
+                    updateData.avatar = avatar;
+                if (provider)
+                    updateData.provider = provider;
+                if (socialId)
+                    updateData.socialId = socialId;
+                if (Object.keys(updateData).length > 0) {
+                    user = await this.prisma.user.update({
+                        where: { id: user.id },
+                        data: updateData
+                    });
+                }
+            }
+        }
+        else {
+            user = await this.prisma.user.create({
+                data: {
+                    email,
+                    name,
+                    avatar,
+                    provider,
+                    socialId,
+                    password: "",
+                    role: 'USER',
+                },
+            });
+        }
+        const payload = { sub: user.id, email: user.email, role: user.role };
+        return {
+            access_token: this.jwtService.sign(payload),
+            user: {
+                id: user.id,
+                email: user.email,
+                name: user.name,
+                role: user.role,
+                avatar: user.avatar,
+            },
         };
     }
 };

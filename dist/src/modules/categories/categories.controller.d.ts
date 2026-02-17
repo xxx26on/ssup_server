@@ -36,9 +36,9 @@ export declare class CategoriesController {
             content: string;
             image: string | null;
             published: boolean;
+            categoryId: number;
             views: number;
             authorId: number;
-            categoryId: number;
         }[];
         children: {
             id: number;

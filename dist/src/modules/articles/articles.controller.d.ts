@@ -13,9 +13,9 @@ export declare class ArticlesController {
         content: string;
         image: string | null;
         published: boolean;
+        categoryId: number;
         views: number;
         authorId: number;
-        categoryId: number;
     }>;
     findAll(page?: string, limit?: string, categoryId?: string, search?: string): Promise<{
         data: ({
@@ -37,9 +37,9 @@ export declare class ArticlesController {
             content: string;
             image: string | null;
             published: boolean;
+            categoryId: number;
             views: number;
             authorId: number;
-            categoryId: number;
         })[];
         meta: {
             total: number;
@@ -62,9 +62,9 @@ export declare class ArticlesController {
             content: string;
             image: string | null;
             published: boolean;
+            categoryId: number;
             views: number;
             authorId: number;
-            categoryId: number;
         })[];
         meta: {
             total: number;
@@ -91,9 +91,9 @@ export declare class ArticlesController {
             content: string;
             image: string | null;
             published: boolean;
+            categoryId: number;
             views: number;
             authorId: number;
-            categoryId: number;
         })[];
         meta: {
             total: number;
@@ -111,9 +111,9 @@ export declare class ArticlesController {
         content: string;
         image: string | null;
         published: boolean;
+        categoryId: number;
         views: number;
         authorId: number;
-        categoryId: number;
     }>;
     findOne(slug: string): Promise<{
         category: {
@@ -134,9 +134,9 @@ export declare class ArticlesController {
         content: string;
         image: string | null;
         published: boolean;
+        categoryId: number;
         views: number;
         authorId: number;
-        categoryId: number;
     }>;
     update(id: number, updateArticleDto: UpdateArticleDto): Promise<{
         id: number;
@@ -148,9 +148,9 @@ export declare class ArticlesController {
         content: string;
         image: string | null;
         published: boolean;
+        categoryId: number;
         views: number;
         authorId: number;
-        categoryId: number;
     }>;
     remove(id: number): Promise<{
         id: number;
@@ -162,8 +162,8 @@ export declare class ArticlesController {
         content: string;
         image: string | null;
         published: boolean;
+        categoryId: number;
         views: number;
         authorId: number;
-        categoryId: number;
     }>;
 }

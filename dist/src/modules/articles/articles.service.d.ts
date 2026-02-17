@@ -14,9 +14,9 @@ export declare class ArticlesService {
         content: string;
         image: string | null;
         published: boolean;
+        categoryId: number;
         views: number;
         authorId: number;
-        categoryId: number;
     }>;
     findAll(query: {
         page?: number;
@@ -43,9 +43,9 @@ export declare class ArticlesService {
             content: string;
             image: string | null;
             published: boolean;
+            categoryId: number;
             views: number;
             authorId: number;
-            categoryId: number;
         })[];
         meta: {
             total: number;
@@ -72,9 +72,9 @@ export declare class ArticlesService {
         content: string;
         image: string | null;
         published: boolean;
+        categoryId: number;
         views: number;
         authorId: number;
-        categoryId: number;
     }>;
     findAllForAdmin(query: {
         page?: number;
@@ -99,9 +99,9 @@ export declare class ArticlesService {
             content: string;
             image: string | null;
             published: boolean;
+            categoryId: number;
             views: number;
             authorId: number;
-            categoryId: number;
         })[];
         meta: {
             total: number;
@@ -119,9 +119,9 @@ export declare class ArticlesService {
         content: string;
         image: string | null;
         published: boolean;
+        categoryId: number;
         views: number;
         authorId: number;
-        categoryId: number;
     }>;
     findAllForUser(userId: number, query: {
         page?: number;
@@ -141,9 +141,9 @@ export declare class ArticlesService {
             content: string;
             image: string | null;
             published: boolean;
+            categoryId: number;
             views: number;
             authorId: number;
-            categoryId: number;
         })[];
         meta: {
             total: number;
@@ -161,9 +161,9 @@ export declare class ArticlesService {
         content: string;
         image: string | null;
         published: boolean;
+        categoryId: number;
         views: number;
         authorId: number;
-        categoryId: number;
     }>;
     remove(id: number): Promise<{
         id: number;
@@ -175,8 +175,8 @@ export declare class ArticlesService {
         content: string;
         image: string | null;
         published: boolean;
+        categoryId: number;
         views: number;
         authorId: number;
-        categoryId: number;
     }>;
 }

@@ -1,3 +1,4 @@
+import type { Response } from 'express';
 import { AuthService } from './auth.service';
 import { RegisterDto, LoginDto } from './dto/auth.dto';
 export declare class AuthController {
@@ -21,4 +22,8 @@ export declare class AuthController {
             avatar: string | null;
         };
     }>;
+    googleAuth(req: any): Promise<void>;
+    googleAuthRedirect(req: any, res: Response): Promise<void>;
+    facebookAuth(req: any): Promise<void>;
+    facebookAuthRedirect(req: any, res: Response): Promise<void>;
 }
