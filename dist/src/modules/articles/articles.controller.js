@@ -35,6 +35,12 @@ let ArticlesController = class ArticlesController {
             search,
         });
     }
+    findAllMyArticles(req, page, limit) {
+        return this.articlesService.findAllForUser(req.user.userId, {
+            page: page ? +page : 1,
+            limit: limit ? +limit : 10,
+        });
+    }
     findAllAdmin(page, limit, status) {
         return this.articlesService.findAllForAdmin({
             page: page ? +page : 1,
@@ -75,6 +81,16 @@ __decorate([
     __metadata("design:paramtypes", [String, String, String, String]),
     __metadata("design:returntype", void 0)
 ], ArticlesController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)('me'),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+    __param(0, (0, common_1.Req)()),
+    __param(1, (0, common_1.Query)('page')),
+    __param(2, (0, common_1.Query)('limit')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, String, String]),
+    __metadata("design:returntype", void 0)
+], ArticlesController.prototype, "findAllMyArticles", null);
 __decorate([
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
     (0, roles_decorator_1.Roles)('ADMIN', 'EDITOR'),

@@ -47,6 +47,31 @@ export declare class ArticlesController {
             lastPage: number;
         };
     }>;
+    findAllMyArticles(req: any, page?: string, limit?: string): Promise<{
+        data: ({
+            category: {
+                title: string;
+            };
+        } & {
+            id: number;
+            createdAt: Date;
+            updatedAt: Date;
+            slug: string;
+            title: string;
+            excerpt: string | null;
+            content: string;
+            image: string | null;
+            published: boolean;
+            views: number;
+            authorId: number;
+            categoryId: number;
+        })[];
+        meta: {
+            total: number;
+            page: number;
+            lastPage: number;
+        };
+    }>;
     findAllAdmin(page?: string, limit?: string, status?: 'all' | 'pending' | 'published'): Promise<{
         data: ({
             category: {

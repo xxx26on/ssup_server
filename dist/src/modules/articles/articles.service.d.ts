@@ -123,6 +123,34 @@ export declare class ArticlesService {
         authorId: number;
         categoryId: number;
     }>;
+    findAllForUser(userId: number, query: {
+        page?: number;
+        limit?: number;
+    }): Promise<{
+        data: ({
+            category: {
+                title: string;
+            };
+        } & {
+            id: number;
+            createdAt: Date;
+            updatedAt: Date;
+            slug: string;
+            title: string;
+            excerpt: string | null;
+            content: string;
+            image: string | null;
+            published: boolean;
+            views: number;
+            authorId: number;
+            categoryId: number;
+        })[];
+        meta: {
+            total: number;
+            page: number;
+            lastPage: number;
+        };
+    }>;
     update(id: number, updateArticleDto: UpdateArticleDto): Promise<{
         id: number;
         createdAt: Date;

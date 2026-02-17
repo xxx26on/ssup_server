@@ -138,6 +138,30 @@ let ArticlesService = class ArticlesService {
             data: { published: true },
         });
     }
+    async findAllForUser(userId, query) {
+        const { page = 1, limit = 10 } = query;
+        const skip = (page - 1) * limit;
+        const [articles, total] = await Promise.all([
+            this.prisma.article.findMany({
+                where: { authorId: userId },
+                skip,
+                take: limit,
+                include: {
+                    category: { select: { title: true } },
+                },
+                orderBy: { createdAt: 'desc' },
+            }),
+            this.prisma.article.count({ where: { authorId: userId } }),
+        ]);
+        return {
+            data: articles,
+            meta: {
+                total,
+                page,
+                lastPage: Math.ceil(total / limit),
+            },
+        };
+    }
     async update(id, updateArticleDto) {
         return this.prisma.article.update({
             where: { id },
