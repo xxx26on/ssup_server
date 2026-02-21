@@ -5,12 +5,12 @@ export declare class CategoriesController {
     constructor(categoriesService: CategoriesService);
     create(createCategoryDto: CreateCategoryDto): Promise<{
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        slug: string;
         title: string;
+        slug: string;
         description: string | null;
         parentId: number | null;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     findAll(): Promise<({
         parent: {
@@ -18,20 +18,20 @@ export declare class CategoriesController {
         } | null;
     } & {
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        slug: string;
         title: string;
+        slug: string;
         description: string | null;
         parentId: number | null;
+        createdAt: Date;
+        updatedAt: Date;
     })[]>;
     findOne(id: number): Promise<{
         articles: {
             id: number;
+            title: string;
+            slug: string;
             createdAt: Date;
             updatedAt: Date;
-            slug: string;
-            title: string;
             excerpt: string | null;
             content: string;
             image: string | null;
@@ -40,49 +40,49 @@ export declare class CategoriesController {
             views: number;
             authorId: number;
         }[];
-        children: {
-            id: number;
-            createdAt: Date;
-            updatedAt: Date;
-            slug: string;
-            title: string;
-            description: string | null;
-            parentId: number | null;
-        }[];
         parent: {
             id: number;
-            createdAt: Date;
-            updatedAt: Date;
-            slug: string;
             title: string;
+            slug: string;
             description: string | null;
             parentId: number | null;
+            createdAt: Date;
+            updatedAt: Date;
         } | null;
+        children: {
+            id: number;
+            title: string;
+            slug: string;
+            description: string | null;
+            parentId: number | null;
+            createdAt: Date;
+            updatedAt: Date;
+        }[];
     } & {
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        slug: string;
         title: string;
+        slug: string;
         description: string | null;
         parentId: number | null;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     update(id: number, updateCategoryDto: UpdateCategoryDto): Promise<{
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        slug: string;
         title: string;
+        slug: string;
         description: string | null;
         parentId: number | null;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     remove(id: number): Promise<{
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        slug: string;
         title: string;
+        slug: string;
         description: string | null;
         parentId: number | null;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
 }

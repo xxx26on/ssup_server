@@ -5,10 +5,10 @@ export declare class ArticlesController {
     constructor(articlesService: ArticlesService);
     create(createArticleDto: CreateArticleDto, req: any): Promise<{
         id: number;
+        title: string;
+        slug: string;
         createdAt: Date;
         updatedAt: Date;
-        slug: string;
-        title: string;
         excerpt: string | null;
         content: string;
         image: string | null;
@@ -20,8 +20,8 @@ export declare class ArticlesController {
     findAll(page?: string, limit?: string, categoryId?: string, search?: string): Promise<{
         data: ({
             category: {
-                slug: string;
                 title: string;
+                slug: string;
             };
             author: {
                 name: string | null;
@@ -29,10 +29,10 @@ export declare class ArticlesController {
             };
         } & {
             id: number;
+            title: string;
+            slug: string;
             createdAt: Date;
             updatedAt: Date;
-            slug: string;
-            title: string;
             excerpt: string | null;
             content: string;
             image: string | null;
@@ -54,10 +54,10 @@ export declare class ArticlesController {
             };
         } & {
             id: number;
+            title: string;
+            slug: string;
             createdAt: Date;
             updatedAt: Date;
-            slug: string;
-            title: string;
             excerpt: string | null;
             content: string;
             image: string | null;
@@ -78,15 +78,15 @@ export declare class ArticlesController {
                 title: string;
             };
             author: {
-                email: string;
                 name: string | null;
+                email: string;
             };
         } & {
             id: number;
+            title: string;
+            slug: string;
             createdAt: Date;
             updatedAt: Date;
-            slug: string;
-            title: string;
             excerpt: string | null;
             content: string;
             image: string | null;
@@ -103,10 +103,10 @@ export declare class ArticlesController {
     }>;
     publish(id: number): Promise<{
         id: number;
+        title: string;
+        slug: string;
         createdAt: Date;
         updatedAt: Date;
-        slug: string;
-        title: string;
         excerpt: string | null;
         content: string;
         image: string | null;
@@ -117,8 +117,8 @@ export declare class ArticlesController {
     }>;
     findOne(slug: string): Promise<{
         category: {
-            slug: string;
             title: string;
+            slug: string;
         };
         author: {
             name: string | null;
@@ -126,10 +126,10 @@ export declare class ArticlesController {
         };
     } & {
         id: number;
+        title: string;
+        slug: string;
         createdAt: Date;
         updatedAt: Date;
-        slug: string;
-        title: string;
         excerpt: string | null;
         content: string;
         image: string | null;
@@ -140,10 +140,10 @@ export declare class ArticlesController {
     }>;
     update(id: number, updateArticleDto: UpdateArticleDto): Promise<{
         id: number;
+        title: string;
+        slug: string;
         createdAt: Date;
         updatedAt: Date;
-        slug: string;
-        title: string;
         excerpt: string | null;
         content: string;
         image: string | null;
@@ -154,10 +154,10 @@ export declare class ArticlesController {
     }>;
     remove(id: number): Promise<{
         id: number;
+        title: string;
+        slug: string;
         createdAt: Date;
         updatedAt: Date;
-        slug: string;
-        title: string;
         excerpt: string | null;
         content: string;
         image: string | null;

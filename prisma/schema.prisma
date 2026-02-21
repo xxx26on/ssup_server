@@ -17,8 +17,10 @@ model User {
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   provider  String?   @default("local")
-  socialId  String?
-  articles  Article[]
+  socialId               String?
+  receiveWeeklyEmail     Boolean   @default(true)
+  receiveRecommendations Boolean   @default(true)
+  articles               Article[]
 }
 
 model Category {

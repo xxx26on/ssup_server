@@ -6,10 +6,10 @@ export declare class ArticlesService {
     private slugify;
     create(createArticleDto: CreateArticleDto, authorId: number): Promise<{
         id: number;
+        title: string;
+        slug: string;
         createdAt: Date;
         updatedAt: Date;
-        slug: string;
-        title: string;
         excerpt: string | null;
         content: string;
         image: string | null;
@@ -26,8 +26,8 @@ export declare class ArticlesService {
     }): Promise<{
         data: ({
             category: {
-                slug: string;
                 title: string;
+                slug: string;
             };
             author: {
                 name: string | null;
@@ -35,10 +35,10 @@ export declare class ArticlesService {
             };
         } & {
             id: number;
+            title: string;
+            slug: string;
             createdAt: Date;
             updatedAt: Date;
-            slug: string;
-            title: string;
             excerpt: string | null;
             content: string;
             image: string | null;
@@ -55,8 +55,8 @@ export declare class ArticlesService {
     }>;
     findOne(slug: string): Promise<{
         category: {
-            slug: string;
             title: string;
+            slug: string;
         };
         author: {
             name: string | null;
@@ -64,10 +64,10 @@ export declare class ArticlesService {
         };
     } & {
         id: number;
+        title: string;
+        slug: string;
         createdAt: Date;
         updatedAt: Date;
-        slug: string;
-        title: string;
         excerpt: string | null;
         content: string;
         image: string | null;
@@ -86,15 +86,15 @@ export declare class ArticlesService {
                 title: string;
             };
             author: {
-                email: string;
                 name: string | null;
+                email: string;
             };
         } & {
             id: number;
+            title: string;
+            slug: string;
             createdAt: Date;
             updatedAt: Date;
-            slug: string;
-            title: string;
             excerpt: string | null;
             content: string;
             image: string | null;
@@ -111,10 +111,10 @@ export declare class ArticlesService {
     }>;
     publish(id: number): Promise<{
         id: number;
+        title: string;
+        slug: string;
         createdAt: Date;
         updatedAt: Date;
-        slug: string;
-        title: string;
         excerpt: string | null;
         content: string;
         image: string | null;
@@ -133,10 +133,10 @@ export declare class ArticlesService {
             };
         } & {
             id: number;
+            title: string;
+            slug: string;
             createdAt: Date;
             updatedAt: Date;
-            slug: string;
-            title: string;
             excerpt: string | null;
             content: string;
             image: string | null;
@@ -153,10 +153,10 @@ export declare class ArticlesService {
     }>;
     update(id: number, updateArticleDto: UpdateArticleDto): Promise<{
         id: number;
+        title: string;
+        slug: string;
         createdAt: Date;
         updatedAt: Date;
-        slug: string;
-        title: string;
         excerpt: string | null;
         content: string;
         image: string | null;
@@ -167,10 +167,10 @@ export declare class ArticlesService {
     }>;
     remove(id: number): Promise<{
         id: number;
+        title: string;
+        slug: string;
         createdAt: Date;
         updatedAt: Date;
-        slug: string;
-        title: string;
         excerpt: string | null;
         content: string;
         image: string | null;
